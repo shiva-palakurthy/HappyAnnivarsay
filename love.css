@@ -1,0 +1,376 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    overflow:hidden;
+    height:100vh;
+    font-family:'Poppins', sans-serif;
+    color:white;
+}
+
+/* Background Video */
+
+.bg-video{
+    position:fixed;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    z-index:-3;
+}
+
+/* Overlay */
+
+.overlay{
+    position:fixed;
+    width:100%;
+    height:100%;
+
+    background:
+    linear-gradient(
+        rgba(0,0,0,0.6),
+        rgba(255,0,90,0.2)
+    );
+
+    z-index:-2;
+}
+
+/* Container */
+
+.container{
+    width:100%;
+    height:100vh;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+    text-align:center;
+
+    padding:20px;
+}
+
+/* Floating Hearts */
+
+.hearts span{
+    position:absolute;
+    bottom:-100px;
+
+    font-size:25px;
+
+    animation:float 10s linear infinite;
+}
+
+.hearts span:nth-child(1){left:10%;}
+.hearts span:nth-child(2){left:20%; animation-duration:8s;}
+.hearts span:nth-child(3){left:35%; animation-duration:11s;}
+.hearts span:nth-child(4){left:50%; animation-duration:7s;}
+.hearts span:nth-child(5){left:65%; animation-duration:10s;}
+.hearts span:nth-child(6){left:80%; animation-duration:9s;}
+.hearts span:nth-child(7){left:90%; animation-duration:12s;}
+.hearts span:nth-child(8){left:45%; animation-duration:6s;}
+
+/* Headings */
+
+.container h3{
+    letter-spacing:5px;
+    color:#ffd6e7;
+    margin-bottom:15px;
+}
+
+.container h1{
+    font-size:5rem;
+
+    text-shadow:
+    0 0 10px white,
+    0 0 30px rgba(255,255,255,0.8);
+
+    margin-bottom:20px;
+}
+
+/* Quote */
+
+.quote{
+    font-family:'Great Vibes', cursive;
+    font-size:2rem;
+
+    color:#ffd6e7;
+
+    margin-bottom:25px;
+}
+
+/* Paragraph */
+
+.container p{
+    font-size:1.2rem;
+    line-height:2;
+    max-width:700px;
+}
+
+/* Love Line */
+
+.love-line{
+    margin-top:25px;
+
+    font-size:2rem;
+    font-weight:bold;
+
+    color:#ff4d88;
+
+    animation:pulse 2s infinite;
+}
+
+/* Buttons */
+
+button{
+    margin-top:25px;
+
+    padding:18px 50px;
+
+    border:none;
+    border-radius:50px;
+
+    background:
+    linear-gradient(
+        135deg,
+        #ff2e63,
+        #ff85a2
+    );
+
+    color:white;
+
+    font-size:1rem;
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:0.4s;
+
+    box-shadow:
+    0 0 20px rgba(255,46,99,0.6);
+}
+
+button:hover{
+    transform:scale(1.08);
+}
+
+/* Popup */
+
+.popup,
+.gallery-popup{
+
+    position:fixed;
+    inset:0;
+
+    display:none;
+    justify-content:center;
+    align-items:center;
+
+    background:rgba(0,0,0,0.8);
+
+    z-index:100;
+
+    padding:20px;
+}
+
+/* Letter */
+
+.letter,
+.gallery-box{
+
+    width:90%;
+    max-width:850px;
+
+    background:rgba(255,255,255,0.12);
+
+    backdrop-filter:blur(20px);
+
+    border-radius:30px;
+
+    padding:40px;
+
+    position:relative;
+
+    animation:popup 0.5s ease;
+
+    max-height:90vh;
+    overflow-y:auto;
+}
+
+/* Headings */
+
+.letter h2,
+.gallery-box h2{
+
+    text-align:center;
+
+    margin-bottom:25px;
+
+    font-family:'Great Vibes', cursive;
+
+    font-size:2.5rem;
+
+    color:#ffd6e7;
+}
+
+/* Letter Text */
+
+.letter-content p{
+
+    line-height:2;
+    margin-bottom:20px;
+}
+
+/* Final */
+
+.final{
+
+    margin-top:20px;
+
+    text-align:center;
+
+    font-size:1.5rem;
+    font-weight:bold;
+
+    color:#ff85a2;
+}
+
+/* Close */
+
+.close,
+.gallery-close{
+
+    position:absolute;
+
+    top:20px;
+    right:25px;
+
+    font-size:1.5rem;
+
+    cursor:pointer;
+}
+
+/* Gallery */
+
+.gallery{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(220px,1fr));
+
+    gap:20px;
+}
+
+/* Images */
+
+.gallery img{
+
+    width:100%;
+    height:250px;
+
+    object-fit:cover;
+
+    border-radius:20px;
+
+    transition:0.4s;
+
+    background:rgba(255,255,255,0.1);
+}
+
+.gallery img:hover{
+
+    transform:scale(1.05);
+
+    box-shadow:
+    0 0 25px rgba(255,255,255,0.5);
+}
+
+/* Animations */
+
+@keyframes float{
+
+    0%{
+        transform:translateY(0) rotate(0deg);
+        opacity:0;
+    }
+
+    10%{
+        opacity:1;
+    }
+
+    100%{
+        transform:translateY(-120vh) rotate(360deg);
+        opacity:0;
+    }
+}
+
+@keyframes pulse{
+
+    0%{
+        transform:scale(1);
+    }
+
+    50%{
+        transform:scale(1.05);
+    }
+
+    100%{
+        transform:scale(1);
+    }
+}
+
+@keyframes popup{
+
+    from{
+        transform:scale(0.7);
+        opacity:0;
+    }
+
+    to{
+        transform:scale(1);
+        opacity:1;
+    }
+}
+
+/* Mobile */
+
+@media(max-width:768px){
+
+    .container h1{
+        font-size:2.7rem;
+    }
+
+    .quote{
+        font-size:1.5rem;
+    }
+
+    .container p{
+        font-size:1rem;
+    }
+
+    .love-line{
+        font-size:1.5rem;
+    }
+
+    .letter,
+    .gallery-box{
+        padding:25px;
+    }
+}
+#music-btn{
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 12px 18px;
+    border: none;
+    border-radius: 30px;
+    background: #ff4d6d;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 0 0 10px pink;
+}
